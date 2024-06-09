@@ -14,13 +14,13 @@
 <?php 
   if( isset($_SESSION["error"])) {
     ?>
-    <div class="alert alert-danger">
+    <div class="alert alert-danger m-3">
       <?php print $_SESSION["error"] ?>
     </div>
       <?php
   } elseif( isset($_SESSION["success"]) ) {
     ?>
-    <div class="alert alert-success">
+    <div class="alert alert-success m-3">
       <?php print $_SESSION["success"] ?>
     </div>
     <?php
@@ -31,7 +31,7 @@
       <form action="?page=calculatorProcess" method="post" class="col-lg-4 col-md-6 mx-auto">
         
         <div class="form-floating mb-3">  
-          <input type="number" name="numb1" placeholder="Első szám" class="form-control" id="numb1">
+          <input type="number" name="numb1" placeholder="Első szám" class="form-control" id="numb1" value="<?php echo isset($_SESSION['eredmeny'])? $_SESSION['eredmeny'] : 0; ?>">
           <label for="numb1">Addj meg egy számot</label>
         </div>
 

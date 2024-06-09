@@ -3,8 +3,11 @@
 namespace controllers;
 
 class CalculatorController {
+
+    use \traits\Utilities;
+
     function calculatorView() {
-        include(__DIR__."/../views/Calculator.php");
+        $this->getViewFile("calculator");
     }
 
     function calculatorProcess() {
@@ -41,7 +44,8 @@ class CalculatorController {
                 }
 
                 if ($total !== null) {
-                    $_SESSION["success"] = 'Eredmény: ' . $total;
+                    $_SESSION["success"] = 'Eredmeny: ' . $total;
+                    $_SESSION["eredmeny"] = $total;
                 }
             }
         } else {
@@ -51,4 +55,5 @@ class CalculatorController {
         header("Location: ?page=calculatorView");
         exit();
     }
+
 }
