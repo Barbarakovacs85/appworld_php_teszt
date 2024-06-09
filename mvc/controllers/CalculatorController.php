@@ -1,8 +1,10 @@
 <?php
 
+namespace controllers;
+
 class CalculatorController {
     function calculatorView() {
-        include(__DIR__."/../views/calculator.php");
+        include(__DIR__."/../views/Calculator.php");
     }
 
     function calculatorProcess() {
@@ -13,21 +15,22 @@ class CalculatorController {
                 $num1 = $_POST["numb1"];
                 $num2 = $_POST["numb2"];
                 $operator = $_POST["Operator"];
-                $result = null;
+                $total = null;
 
                 switch ($operator) {
                     case 'Összeadás':
-                        $result = $num1 + $num2;
+
+                        $total = $num1 + $num2;
                         break;
                     case 'Kivonás':
-                        $result = $num1 - $num2;
+                        $total = $num1 - $num2;
                         break;
                     case 'Szorzás':
-                        $result = $num1 * $num2;
+                        $total = $num1 * $num2;
                         break;
                     case 'Osztás':
                         if ($num2 != 0) {
-                            $result = $num1 / $num2;
+                            $total = $num1 / $num2;
                         } else {
                             $_SESSION["error"] = 'Nullával való osztás nem lehetséges';
                         }
@@ -37,8 +40,8 @@ class CalculatorController {
                         break;
                 }
 
-                if ($result !== null) {
-                    $_SESSION["success"] = 'Eredmény: ' . $result;
+                if ($total !== null) {
+                    $_SESSION["success"] = 'Eredmény: ' . $total;
                 }
             }
         } else {
