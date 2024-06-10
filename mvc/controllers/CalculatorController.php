@@ -18,7 +18,7 @@ class CalculatorController {
                 $num1 = $_POST["numb1"];
                 $num2 = $_POST["numb2"];
                 $operator = $_POST["Operator"];
-                $total = null;
+                $total = 0;
 
                 switch ($operator) {
                     case 'Összeadás':
