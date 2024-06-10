@@ -18,7 +18,7 @@ class CalculatorController {
                 $num1 = $_POST["numb1"];
                 $num2 = $_POST["numb2"];
                 $operator = $_POST["Operator"];
-                $total = 0;
+                $total = null;
 
                 switch ($operator) {
                     case 'Összeadás':
@@ -44,9 +44,10 @@ class CalculatorController {
                 }
 
                 if ($total !== null) {
-                    $_SESSION["success"] = 'Eredmeny: ' . $total;
+                    $_SESSION["success"] = 'Eredmény: ' . $total;
                     $_SESSION["eredmeny"] = $total;
                 }
+                
             }
         } else {
             $_SESSION["error"] = 'Hibás kérés típusa';
