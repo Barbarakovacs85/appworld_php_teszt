@@ -23,11 +23,14 @@ class CalculatorController {
                 $operator = $_POST["Operator"];
 
                 try {
-                    $calculation = new Calculation($num1, $num2, $operator);
-                    $total = $calculation->calculate();
+                $calculation = new Calculation($num1, $num2, $operator);
+                $total = $calculation->calculate();
 
+
+                    
                     $_SESSION["success"] = 'Eredmény: ' . $total;
                     $_SESSION["eredmeny"] = $total;
+                    
                 } catch (\Exception $e) {
                     $_SESSION["error"] = $e->getMessage();
                 }
