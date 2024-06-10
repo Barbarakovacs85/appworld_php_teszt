@@ -2,12 +2,15 @@
 
 namespace controllers;
 
+use models\Calculation;
+
 class CalculatorController {
 
     use \traits\Utilities;
 
     function calculatorView() {
         $this->getViewFile("calculator");
+        unset($_SESSION['eredmeny']);
     }
 
     function calculatorProcess() {
@@ -18,36 +21,16 @@ class CalculatorController {
                 $num1 = $_POST["numb1"];
                 $num2 = $_POST["numb2"];
                 $operator = $_POST["Operator"];
-                $total = null;
 
-                switch ($operator) {
-                    case 'Összeadás':
+                try {
+                    $calculation = new Calculation($num1, $num2, $operator);
+                    $total = $calculation->calculate();
 
-                        $total = $num1 + $num2;
-                        break;
-                    case 'Kivonás':
-                        $total = $num1 - $num2;
-                        break;
-                    case 'Szorzás':
-                        $total = $num1 * $num2;
-                        break;
-                    case 'Osztás':
-                        if ($num2 != 0) {
-                            $total = $num1 / $num2;
-                        } else {
-                            $_SESSION["error"] = 'Nullával való osztás nem lehetséges';
-                        }
-                        break;
-                    default:
-                        $_SESSION["error"] = 'Érvénytelen művelet';
-                        break;
-                }
-
-                if ($total !== null) {
                     $_SESSION["success"] = 'Eredmény: ' . $total;
                     $_SESSION["eredmeny"] = $total;
+                } catch (\Exception $e) {
+                    $_SESSION["error"] = $e->getMessage();
                 }
-                
             }
         } else {
             $_SESSION["error"] = 'Hibás kérés típusa';

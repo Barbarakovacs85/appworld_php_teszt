@@ -31,7 +31,7 @@
       <form action="?page=calculatorProcess" method="post" class="col-lg-4 col-md-6 mx-auto">
         
         <div class="form-floating mb-3">  
-          <input type="number" name="numb1" placeholder="Első szám" class="form-control" id="numb1" value="<?php echo isset($_SESSION['eredmeny'])? $_SESSION['eredmeny'] : 0; ?>">
+        <input type="number" name="numb1" placeholder="Első szám" class="form-control" id="numb1" value="<?php echo isset($_SESSION['eredmeny']) ? $_SESSION['eredmeny'] : ''; ?>">
           <label for="numb1">Addj meg egy számot</label>
         </div>
 

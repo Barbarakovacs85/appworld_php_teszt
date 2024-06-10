@@ -1,7 +1,6 @@
-
 <?php
 
-namespace calculation;
+namespace models;
 
 class Calculation {
     private $num1;
@@ -43,3 +42,4 @@ class Calculation {
         return $this->total;
     }
 }
+?>
