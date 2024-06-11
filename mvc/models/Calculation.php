@@ -3,10 +3,10 @@
 namespace models;
 //definiáltam az osztályt, amley a számításokat tartalmazza metódusokat , változókat
 class Calculation {
-    private $num1;
-    private $num2;
-    private $operator;
-    private $total;
+    protected $num1;
+    protected $num2;
+    protected $operator;
+    protected $total;
 //itt kezdem a Calculation osztály konstruktorának a definicióját. 
     public function __construct($num1, $num2, $operator) {
         $this->num1 = $num1;

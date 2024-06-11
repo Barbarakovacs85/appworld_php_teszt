@@ -21,10 +21,9 @@ class NewCalculator extends Calculation {
                 }
                 break;
             default:
-                
-                return parent::calculate();
+                return parent::calculate(); 
         }
         return $this->total;
     }
 }
-?>
+

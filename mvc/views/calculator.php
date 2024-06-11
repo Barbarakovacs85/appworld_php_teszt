@@ -32,15 +32,14 @@
         
         <div class="form-floating mb-3">  
         <input type="number" name="numb1" placeholder="Első szám" class="form-control" id="numb1" value="<?php echo isset($_SESSION['eredmeny']) ? $_SESSION['eredmeny'] : ''; ?>">
-          <label for="numb1">Addj meg egy számot</label>
+          <label for="numb1">Adj meg egy számot</label>
         </div>
 
-        <div class="form-floating mb-3">  
+        <div class="form-floating mb-3" id="numb2-container">  
           <input type="number" name="numb2" placeholder="Második szám" class="form-control" id="numb2">
-          <label for="numb2">Addj meg a második számot</label>
+          <label for="numb2">Adj meg egy második számot</label>
         </div>
 
-    
         <div class="form-floating mb-3">   
           <select name="Operator" class="form-control" id="operator">
             <option value="Műveletek"></option>
@@ -48,6 +47,8 @@
             <option value="Kivonás">Kivonás</option>
             <option value="Szorzás">Szorzás</option>
             <option value="Osztás">Osztás</option>
+            <option value="Négyzetre emelés">Négyzetre emelés</option>
+            <option value="Négyzetgyökvonás">Négyzetgyökvonás</option>
           </select>
           <label>Válassz egy műveletet</label>
         </div>
@@ -60,6 +61,18 @@
     </div>
 
   </div>
+
+<script>
+document.getElementById('operator').addEventListener('change', function() {
+    var operator = this.value;
+    var numb2Container = document.getElementById('numb2-container');
+    if (operator === 'Négyzetre emelés' || operator === 'Négyzetgyökvonás') {
+        numb2Container.style.display = 'none';
+    } else {
+        numb2Container.style.display = 'block';
+    }
+});
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
