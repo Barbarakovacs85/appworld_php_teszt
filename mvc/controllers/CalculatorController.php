@@ -42,6 +42,7 @@ class CalculatorController {
             $_SESSION["error"] = 'Hibás kérés típusa';
         }
 
+       
         header("Location: ?page=calculatorView");
         exit();
     }
