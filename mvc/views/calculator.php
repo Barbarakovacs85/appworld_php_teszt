@@ -10,9 +10,10 @@
 .container{
   position:center;
   margin-top:250px;
-  background: pink;
+  background: lightgreen;
   height: 550px;
   padding:15px;
+ 
   
 }
 .btn-success{
@@ -27,7 +28,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" >
 
 <?php 
   if( isset($_SESSION["error"])) {
@@ -44,9 +45,9 @@
     <?php
   }
 ?>
-    <div class="row mt-5 justify-content-center">
+    <div class="row mt-5 justify-content-center ">
       <h3 class="text-center">Számológép</h3>
-      <form action="?page=calculatorProcess" method="post" class="col-lg-4 col-md-6 mx-auto">
+      <form action="?page=calculatorProcess" method="post" class="col-lg-6 col-md-6 mx-auto">
         
         <div class="form-floating mb-3">  
         <input type="number" name="numb1" placeholder="Első szám" class="form-control" id="numb1" value="<?php echo isset($_SESSION['eredmeny']) ? $_SESSION['eredmeny'] : ''; ?>">
