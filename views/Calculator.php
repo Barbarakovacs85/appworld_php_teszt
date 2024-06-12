@@ -13,8 +13,6 @@
   background: lightgreen;
   height: 550px;
   padding:15px;
- 
-  
 }
 .btn-success{
   width:420px;
@@ -28,7 +26,7 @@
 </head>
 
 <body>
-  <div class="container" >
+  <div class="container">
 
 <?php 
   if( isset($_SESSION["error"])) {
@@ -45,12 +43,13 @@
     <?php
   }
 ?>
+
     <div class="row mt-5 justify-content-center ">
       <h3 class="text-center">Számológép</h3>
       <form action="?page=calculatorProcess" method="post" class="col-lg-6 col-md-6 mx-auto">
         
         <div class="form-floating mb-3">  
-        <input type="number" name="numb1" placeholder="Első szám" class="form-control" id="numb1" value="<?php echo isset($_SESSION['eredmeny']) ? $_SESSION['eredmeny'] : ''; ?>">
+          <input type="number" name="numb1" placeholder="Első szám" class="form-control" id="numb1" value="<?php echo isset($_SESSION['eredmeny']) ? $_SESSION['eredmeny'] : ''; ?>">
           <label for="numb1">Adj meg egy számot</label>
         </div>
 
@@ -77,12 +76,6 @@
         </div>
 
       </form>
-<!-- hozzáadok egy törlés gombot az numb1 input mező lenullázása érdekében újabb művelet előtt -->
-      <form action="?page=clearForm" method="post" class="text-center mt-2 " >
-        <input type="submit" name="clear" value="Törlés" class="btn btn-danger">
-      </form>
-    </div>
-
   </div>
 
 <script>
